@@ -1,95 +1,240 @@
-* {
-  margin: 0;
-  padding: 0;
+/* Reset styles */
+
+:root {
+    --bg-color: white;
+    --text-color: #1f1534;
+    --nav-bg: white;
+    --button-bg: #69b99d;
+    --button-text: #f9f9f9;
+    --active-color: #1f1534;
 }
-/* font-family: 'Mulish', sans-serif;
-font-family: 'Open Sans', sans-serif; */
+
+.dark-mode {
+    --bg-color: #1f1f1f;
+    --text-color: #f9f9f9;
+    --nav-bg: #1f1f1f;
+    --button-bg: #69b99d;
+    --button-text: #1f1f1f;
+    --active-color: #f9f9f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-  background: linear-gradient(180deg, rgba(227, 255, 248, 0) 82.08%, rgba(227, 255, 248, 0.38) 100%);
-
-  min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    font-family: "Open Sans", sans-serif;
 }
 
 .page {
-  width: 1040px;
-  margin: 0px auto;
-  padding-top: 64px;
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
-/* Check margin */
 nav {
-  font-family: 'Mulish', sans-serif;
-  color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    background: var(--nav-bg);
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    position: relative;
 }
 
-/* Check list styling */
-nav ul {
-  display: flex;
-  gap: 48px;
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    align-items: center;
 }
 
-/* Check list link style */
-nav ul li a {
-
+.nav-items {
+    display: flex;
+    gap: 24px;
+    align-items: center;
 }
 
-/* Make text bold on hover */
-nav ul li a:hover {
-  
+.nav-links li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #aaaaab;
 }
 
+.nav-links .active {
+    font-weight: bold;
+    color: var(--active-color);
+}
+
+.nav-links li a:hover {
+    color: #00bfa6;
+}
+
+.dark-mode .nav-links {
+    background: var(--nav-bg);
+}
+
+.dark-mode .menu-toggle {
+    color: #f9f9f9;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
 main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
-/* Check margin and font styling */
 .text h1 {
-  font-family: 'Mulish', sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 150%;
 }
 
-/* Check font styling */
 .text h1 span {
+    font-weight: 700;
+    color: #89c5cc;
 }
 
-/* Check font styling */
 .text p {
-  font-family: 'Open Sans', sans-serif; 
+    font-size: 16px;
+    margin-bottom: 48px;
+    color: #7d7987;
+    line-height: 160%;
 }
 
-/* Check font styling and make sure the button is rounded */
 .text button {
-  font-family: 'Open Sans', sans-serif;
-  display: flex;
-  gap: 8px;
+    display: flex;
+    gap: 8px;
+    width: 169px;
+    height: 56px;
+    padding: 16px 32px;
+    background-color: var(--button-bg);
+    color: #f9f9f9;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    align-items: center;
 }
 
-/* Handle when user hover on the button */
 .text button:hover {
+    background-color: #00bfa6;
 }
 
-/* Check the text styling */
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
 footer {
-  font-family: 'Open Sans', sans-serif; 
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 100px;
 }
 
-/* Check the text styling */
 footer a {
-  color: #000;
-  text-decoration: none;
-  font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
 }
 
 #balls {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 20%;
+    max-width: 150px;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#woman {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--nav-bg);
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+    }
+
+    .dark-mode .nav-links {
+        background: var(--nav-bg);
+        z-index: 10;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text {
+        margin-bottom: 30px;
+    }
+
+    .text button {
+        margin: 0 auto;
+        width: 150px;
+        height: 36px;
+        padding: 8px 16px;
+    }
+
+    #balls {
+        max-width: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .text h1 {
+        font-size: 28px;
+    }
+
+    .text p {
+        font-size: 14px;
+    }
+}
