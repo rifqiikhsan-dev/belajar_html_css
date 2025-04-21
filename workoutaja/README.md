@@ -16,11 +16,11 @@ Berikut ini hasil implementasi:
 
 ### ✅ Light Mode
 
-![Light Mode](/images/lighmode.png)
+![Light Mode](./images/lighmode.png)
 
 ### ✅ Dark Mode
 
-![Dark Mode](/images/darkmode.png)
+![Dark Mode](./images/darkmode.png)
 
 ## Fitur yang Diselesaikan
 
